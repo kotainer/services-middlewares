@@ -1,5 +1,5 @@
 {
-  "name": "services-middlewares",
+  "name": "@kotainer/services-middlewares",
   "version": "1.0.0",
   "description": "",
   "main": "lib/index.js",
@@ -8,7 +8,12 @@
     "prepare" : "npm run build"
   },
   "author": "Viktor Butkov",
-  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com:kotainer/services-middlewares.git"
+  },
+  "homepage": "https://github.com:kotainer/services-middlewares#readme",
+  "license": "MIT",
   "dependencies": {
     "@types/jsonschema": "^1.1.1",
     "jsonschema": "^1.2.5",
