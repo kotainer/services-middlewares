@@ -8,7 +8,7 @@ const send401 = () => {
 }
 
 export default (cacheService: any) => {
-    async (ctx: any, next: ()=> {}) => {
+    return async (ctx: any, next: ()=> {}) => {
         const headerToken = ctx.headers.authorization;
         const user = await cacheService.get(`${AUTH_TOKEN_KEY}_${headerToken}`);
 
