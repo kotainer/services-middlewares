@@ -2,8 +2,8 @@
     "version": "3.7.4",
     "compilerOptions": {
         "outDir": "./lib",
-        "lib": ["ES5", "ES6"],
-        "target": "ES6",
+        "lib": ["ES2019"],
+        "target": "ES2019",
         "module": "commonjs",
         "moduleResolution": "node",
         "emitDecoratorMetadata": true,
