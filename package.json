@@ -5,7 +5,9 @@
   "main": "lib/index.js",
   "scripts": {
     "build": "tsc",
-    "prepare" : "npm run build"
+    "prepare" : "npm run build",
+    "version": "npm run format && git add -A src",
+    "postversion": "git push && git push --tags"
   },
   "author": "Viktor Butkov",
   "repository": {
