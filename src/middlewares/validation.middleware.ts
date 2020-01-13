@@ -3,7 +3,7 @@ import { Validator, Schema } from 'jsonschema';
 const validator = new Validator();
 
 export default (schema: Schema) => {
-    return (ctx: any, next: () => {}) => {
+    return async (ctx: any, next: () => {}) => {
         const instance = ctx.method === 'POST'
             ? ctx.request.body
             : ctx.request.query;
@@ -22,6 +22,6 @@ export default (schema: Schema) => {
             };
         }
 
-        next();
+        await next();
     }
 };

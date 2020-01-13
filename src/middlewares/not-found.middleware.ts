@@ -1,4 +1,4 @@
-export default (ctx: any, next: () => {}) => {
+export default async (ctx: any, next: () => {}) => {
     if (ctx.status === 404) {
         ctx.status = 404;
         ctx.body = {
@@ -7,5 +7,5 @@ export default (ctx: any, next: () => {}) => {
         };
     }
 
-    next();
+    await next();
 };

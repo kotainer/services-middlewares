@@ -14,6 +14,6 @@ export default (cacheService: any) => {
     
         ctx.user = user;
     
-        next();
+        await next();
     }
 };

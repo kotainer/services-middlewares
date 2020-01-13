@@ -1,6 +1,6 @@
-export default (ctx: any, next: ()=> {}) => {
+export default async (ctx: any, next: ()=> {}) => {
     try {
-        next();
+        await next();
     } catch (err) {
         ctx.status = err.statusCode || err.status || 500;
         ctx.body = {
