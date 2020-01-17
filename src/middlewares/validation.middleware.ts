@@ -4,7 +4,7 @@ const validator = new Validator();
 
 export default (schema: Schema) => {
     return async (ctx: any, next: () => {}) => {
-        const instance = ctx.method === 'POST'
+        const instance = (ctx.method === 'POST' || ctx.method === 'PUT')
             ? ctx.request.body
             : ctx.request.query;
         const validationResult = validator.validate(instance, schema);
