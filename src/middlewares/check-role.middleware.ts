@@ -3,7 +3,7 @@ export default (role: string) => {
         if (!ctx.user || ctx.user.role !== role) {
             throw {
                 status: 401,
-                message: 'Недостачно прав',
+                message: 'Недостачно прав для выполнения операции',
             }
         }
     
