@@ -1,11 +1,10 @@
 export default (scope: string) => {
     return async (ctx: any, next: () => {}) => {
         if (!ctx.user || !ctx.user.scope.includes(scope)) {
-            ctx.status = 401;
-            ctx.body = {
-                message: 'Нет доступа',
+            throw {
                 status: 401,
-            };
+                message: 'Нет доступа',
+            }
         }
     
         await next();

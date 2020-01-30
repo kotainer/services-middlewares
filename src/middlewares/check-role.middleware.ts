@@ -1,11 +1,10 @@
 export default (role: string) => {
     return async (ctx: any, next: () => {}) => {
         if (!ctx.user || ctx.user.role !== role) {
-            ctx.status = 401;
-            ctx.body = {
-                message: 'Недостачно прав',
+            throw {
                 status: 401,
-            };
+                message: 'Недостачно прав',
+            }
         }
     
         await next();
