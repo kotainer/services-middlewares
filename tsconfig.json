@@ -2,7 +2,7 @@
     "version": "3.7.4",
     "compilerOptions": {
         "outDir": "./lib",
-        "lib": ["ES2019"],
+        "lib": ["ES2019", "es2017.object"],
         "target": "ES2019",
         "module": "commonjs",
         "moduleResolution": "node",

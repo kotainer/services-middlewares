@@ -8,11 +8,11 @@
  */
 export default (usersServiceAPI: any) => {
     return async (ctx: any) => {
-        const { accessToken } = await usersServiceAPI.auth(ctx.request.body.login, ctx.request.body.password);
-            
+        const data = await usersServiceAPI.auth(ctx.request.body.login, ctx.request.body.password);
+
         ctx.body = {
             result: true,
-            data: { accessToken },
+            data,
         };
     }
 }
