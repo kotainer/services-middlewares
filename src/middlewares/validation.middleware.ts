@@ -1,24 +1,25 @@
-import { Validator, Schema } from 'jsonschema';
+import { Schema } from 'jsonschema';
+import * as Ajv from 'ajv';
+import {ru} from '@kotainer/ajv-ru-en';
 
-const validator = new Validator();
+const ajv = Ajv({ allErrors: true });
 
 export default (schema: Schema) => {
+    const validator = ajv.compile(schema);
+
     return async (ctx: any, next: () => {}) => {
         const instance = (ctx.method === 'POST' || ctx.method === 'PUT')
             ? ctx.request.body
             : ctx.request.query;
-        const validationResult = validator.validate(instance, schema);
+        const validate = await validator(instance);
 
-        if (!validationResult.valid) {
+        if (!validate) {
+            ru(validator.errors);
+
             throw {
                 status: 400,
-                message: validationResult.errors.map(error => {
-                    return {
-                        property: error.property.split('.').splice(1, 1).join('.'),
-                        message: error.stack.replace('instance.', ''),
-                        name: error.name,
-                    }
-                }),
+                message: ajv.errorsText(validator.errors, { separator: '\n' }).replace('data', '').trim() || 'Ошибка валидации данных',
+                errors: validator.errors,
             };
         }
 

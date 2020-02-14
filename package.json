@@ -1,11 +1,11 @@
 {
   "name": "@kotainer/services-middlewares",
-  "version": "1.1.5",
+  "version": "1.1.6",
   "description": "",
   "main": "lib/index.js",
   "scripts": {
     "build": "tsc && tsc -d --declarationDir lib --declarationMap --emitDeclarationOnly",
-    "prepare" : "npm run build",
+    "prepare": "npm run build",
     "version": "npm run format && git add -A src",
     "postversion": "git push && git push --tags"
   },
@@ -17,7 +17,9 @@
   "homepage": "https://github.com:kotainer/services-middlewares#readme",
   "license": "MIT",
   "dependencies": {
+    "@kotainer/ajv-ru-en": "^1.0.2",
     "@types/jsonschema": "^1.1.1",
+    "ajv": "^6.11.0",
     "jsonschema": "^1.2.5",
     "ts-node": "^8.6.1",
     "typescript": "^3.7.4"
