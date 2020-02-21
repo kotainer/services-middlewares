@@ -1,4 +1,4 @@
-export default async (ctx: any, next: ()=> {}) => {
+export default async (ctx: any, next: () => {}) => {
     try {
         await next();
     } catch (err) {

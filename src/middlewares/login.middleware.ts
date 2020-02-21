@@ -7,12 +7,14 @@
  * @param {String} password пароль пользователя
  */
 export default (usersServiceAPI: any) => {
-    return async (ctx: any) => {
+    return async (ctx: any, next: () => {}) => {
         const data = await usersServiceAPI.auth(ctx.request.body.login, ctx.request.body.password);
 
         ctx.body = {
             result: true,
             data,
         };
+
+        await next();
     }
 }
